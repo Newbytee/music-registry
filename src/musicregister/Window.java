@@ -2,9 +2,6 @@ package musicregister;
 
 public class Window extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Window
-     */
     public Window() {
         initComponents();
     }
