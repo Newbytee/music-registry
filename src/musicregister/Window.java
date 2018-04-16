@@ -1,9 +1,24 @@
 package musicregister;
 
+import java.util.ArrayList;
+
 public class Window extends javax.swing.JFrame {
 
+    int keyNumber;
+    String adress;
+    String owner;
+    
+    ArrayList<Song> list;
+    
     public Window() {
         initComponents();
+        
+        if (list == null) {
+            
+            list = new ArrayList<>();
+            
+        }
+                
     }
 
     @SuppressWarnings("unchecked")
