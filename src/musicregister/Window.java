@@ -38,7 +38,7 @@ public class Window extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        buttonSearchKeyN = new javax.swing.JButton();
+        buttonSortKeyN = new javax.swing.JButton();
         buttonAdd = new javax.swing.JButton();
         fieldKeyNumber1 = new javax.swing.JTextField();
         fieldOwner1 = new javax.swing.JTextField();
@@ -46,6 +46,7 @@ public class Window extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        buttonSearchKeyN = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -60,10 +61,10 @@ public class Window extends javax.swing.JFrame {
 
         jLabel3.setText("Ägare:");
 
-        buttonSearchKeyN.setText("Sortera efter nyckelnummer");
-        buttonSearchKeyN.addActionListener(new java.awt.event.ActionListener() {
+        buttonSortKeyN.setText("Sortera efter nyckelnummer");
+        buttonSortKeyN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonSearchKeyNActionPerformed(evt);
+                buttonSortKeyNActionPerformed(evt);
             }
         });
 
@@ -79,6 +80,13 @@ public class Window extends javax.swing.JFrame {
         jLabel5.setText("Adress:");
 
         jLabel6.setText("Ägare:");
+
+        buttonSearchKeyN.setText("Sök efter nyckelnummer");
+        buttonSearchKeyN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSearchKeyNActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -103,22 +111,26 @@ public class Window extends javax.swing.JFrame {
                                 .addComponent(buttonAdd)))
                         .addGap(42, 42, 42)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel6))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(fieldAddress1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fieldKeyNumber1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fieldOwner1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(buttonSearchKeyN)))
+                            .addComponent(buttonSortKeyN)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel6))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(fieldAddress1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(fieldKeyNumber1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(fieldOwner1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(buttonSearchKeyN)))
+                        .addGap(0, 12, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -146,7 +158,9 @@ public class Window extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(fieldOwner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addComponent(buttonSortKeyN)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -154,18 +168,18 @@ public class Window extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonSearchKeyNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSearchKeyNActionPerformed
+    private void buttonSortKeyNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSortKeyNActionPerformed
         
         infoArea.setText("");
         
         for (int i = 0; i < list.size(); i++) {
             
             key = list.get(i);
-            infoArea.append(key.getInt("keyNumber") + "\t" + key.getString("owner") + "\t" + key.getString("adress") + "\n");
+            infoArea.append(key.getKeyN() + "\t" + key.getOwner() + "\t" + key.getAdress() + "\n");
             
         }
         
-    }//GEN-LAST:event_buttonSearchKeyNActionPerformed
+    }//GEN-LAST:event_buttonSortKeyNActionPerformed
 
     private void buttonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddActionPerformed
         
@@ -191,6 +205,25 @@ public class Window extends javax.swing.JFrame {
         
     }//GEN-LAST:event_buttonAddActionPerformed
 
+    private void buttonSearchKeyNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSearchKeyNActionPerformed
+        
+        infoArea.setText("");
+        int tmpKeyN = Integer.parseInt(fieldKeyNumber1.getText());
+        
+        for (int i = 0; i < list.size(); i++) {
+            
+            key = list.get(i);
+            
+            if (key.getKeyN() == tmpKeyN) {
+                
+                infoArea.append(key.getKeyN() + "\t" + key.getOwner() + "\t" + key.getAdress() + "\n");
+                
+            }
+            
+        }
+        
+    }//GEN-LAST:event_buttonSearchKeyNActionPerformed
+
     public static void main(String args[]) {
         
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -203,6 +236,7 @@ public class Window extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonAdd;
     private javax.swing.JButton buttonSearchKeyN;
+    private javax.swing.JButton buttonSortKeyN;
     private javax.swing.JTextField fieldAddress;
     private javax.swing.JTextField fieldAddress1;
     private javax.swing.JTextField fieldKeyNumber;

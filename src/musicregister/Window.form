@@ -48,18 +48,24 @@
                       </Group>
                       <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonSortKeyN" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="fieldAddress1" min="-2" pref="160" max="-2" attributes="0"/>
+                                  <Component id="fieldKeyNumber1" min="-2" pref="160" max="-2" attributes="0"/>
+                                  <Component id="fieldOwner1" min="-2" pref="160" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="buttonSearchKeyN" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="fieldAddress1" min="-2" pref="160" max="-2" attributes="0"/>
-                          <Component id="fieldKeyNumber1" min="-2" pref="160" max="-2" attributes="0"/>
-                          <Component id="fieldOwner1" min="-2" pref="160" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="buttonSearchKeyN" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -69,7 +75,7 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -106,7 +112,9 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="79" max="32767" attributes="0"/>
+              <EmptySpace pref="46" max="32767" attributes="0"/>
+              <Component id="buttonSortKeyN" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="320" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -150,12 +158,12 @@
         <Property name="text" type="java.lang.String" value="&#xc4;gare:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="buttonSearchKeyN">
+    <Component class="javax.swing.JButton" name="buttonSortKeyN">
       <Properties>
         <Property name="text" type="java.lang.String" value="Sortera efter nyckelnummer"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSearchKeyNActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSortKeyNActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="buttonAdd">
@@ -186,6 +194,14 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="&#xc4;gare:"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="buttonSearchKeyN">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="S&#xf6;k efter nyckelnummer"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSearchKeyNActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
