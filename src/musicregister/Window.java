@@ -2,17 +2,21 @@ package musicregister;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import sparare.Sparare;
 
 public class Window extends javax.swing.JFrame {
 
     int keyNumber;
     String adress;
     String owner;
+    Key key;
     
-    ArrayList<Song> list;
+    ArrayList<Key> list;
     
     public Window() {
         initComponents();
+        
+        list = (ArrayList<Key>)Sparare.ladda("nycklar.xml");
         
         if (list == null) {
             
@@ -27,7 +31,7 @@ public class Window extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        infoArea = new javax.swing.JTextArea();
         fieldKeyNumber = new javax.swing.JTextField();
         fieldOwner = new javax.swing.JTextField();
         fieldAddress = new javax.swing.JTextField();
@@ -46,9 +50,9 @@ public class Window extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        infoArea.setColumns(20);
+        infoArea.setRows(5);
+        jScrollPane1.setViewportView(infoArea);
 
         jLabel1.setText("Nyckelnummer:");
 
@@ -152,7 +156,14 @@ public class Window extends javax.swing.JFrame {
 
     private void buttonSearchKeyNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSearchKeyNActionPerformed
         
+        infoArea.setText("");
         
+        for (int i = 0; i < list.size(); i++) {
+            
+            key = list.get(i);
+            infoArea.append(key.getInt("keyNumber") + "\t" + key.getString("owner") + "\t" + key.getString("adress") + "\n");
+            
+        }
         
     }//GEN-LAST:event_buttonSearchKeyNActionPerformed
 
@@ -163,6 +174,10 @@ public class Window extends javax.swing.JFrame {
             String address = fieldAddress.getText();
             String owner = fieldOwner.getText();        
             int keyNumber = Integer.parseInt(fieldKeyNumber.getText());
+            key = new Key(keyNumber, address, owner);
+            list.add(key);
+            
+            Sparare.spara(list, "nycklar.xml");
             
         } catch (NumberFormatException e) {
             
@@ -194,6 +209,7 @@ public class Window extends javax.swing.JFrame {
     private javax.swing.JTextField fieldKeyNumber1;
     private javax.swing.JTextField fieldOwner;
     private javax.swing.JTextField fieldOwner1;
+    private javax.swing.JTextArea infoArea;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -201,6 +217,5 @@ public class Window extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }
