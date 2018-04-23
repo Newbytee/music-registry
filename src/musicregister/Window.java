@@ -40,13 +40,11 @@ public class Window extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         buttonSortKeyN = new javax.swing.JButton();
         buttonAdd = new javax.swing.JButton();
-        fieldKeyNumber1 = new javax.swing.JTextField();
-        fieldOwner1 = new javax.swing.JTextField();
-        fieldAddress1 = new javax.swing.JTextField();
+        searchField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         buttonSearchKeyN = new javax.swing.JButton();
+        buttonSearchAddress = new javax.swing.JButton();
+        buttonSearchOwner = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -75,16 +73,26 @@ public class Window extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setText("Nyckelnummer:");
-
-        jLabel5.setText("Adress:");
-
-        jLabel6.setText("Ägare:");
+        jLabel4.setText("Sökfält:");
 
         buttonSearchKeyN.setText("Sök efter nyckelnummer");
         buttonSearchKeyN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonSearchKeyNActionPerformed(evt);
+            }
+        });
+
+        buttonSearchAddress.setText("Sök efter adress");
+        buttonSearchAddress.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSearchAddressActionPerformed(evt);
+            }
+        });
+
+        buttonSearchOwner.setText("Sök efter ägare");
+        buttonSearchOwner.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSearchOwnerActionPerformed(evt);
             }
         });
 
@@ -108,23 +116,17 @@ public class Window extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(fieldKeyNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(buttonAdd)))
-                        .addGap(42, 42, 42)
+                                .addComponent(buttonAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel4)
+                        .addGap(18, 18, 18)
+                        .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(buttonSortKeyN)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel6))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(fieldAddress1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(fieldKeyNumber1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(fieldOwner1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addComponent(buttonSearchKeyN)))
-                        .addGap(0, 12, Short.MAX_VALUE)))
+                            .addComponent(buttonSearchAddress, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonSearchKeyN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonSearchOwner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonSortKeyN, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -148,19 +150,15 @@ public class Window extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(fieldKeyNumber1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(buttonSearchKeyN))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(fieldAddress1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))
+                        .addComponent(buttonSearchAddress)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(fieldOwner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                        .addComponent(buttonSearchOwner)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buttonSortKeyN)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -207,23 +205,90 @@ public class Window extends javax.swing.JFrame {
 
     private void buttonSearchKeyNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSearchKeyNActionPerformed
         
-        infoArea.setText("");
-        int tmpKeyN = Integer.parseInt(fieldKeyNumber1.getText());
+        doSearch("keyN");
         
-        for (int i = 0; i < list.size(); i++) {
+//      infoArea.setText("");
+//      int tmpKeyN = Integer.parseInt(searchField.getText());
+//        
+//      for (int i = 0; i < list.size(); i++) {
+//            
+//          key = list.get(i);
+//            
+//          if (key.getKeyN() == tmpKeyN) {
+//                
+//                infoArea.append(key.getKeyN() + "\t" + key.getOwner() + "\t" + key.getAdress() + "\n");
+//                
+//          }
+//            
+//      }
+        
+    }//GEN-LAST:event_buttonSearchKeyNActionPerformed
+
+    private void buttonSearchAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSearchAddressActionPerformed
+        
+        doSearch("adress");
+        
+    }//GEN-LAST:event_buttonSearchAddressActionPerformed
+
+    private void buttonSearchOwnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSearchOwnerActionPerformed
+        
+        doSearch("owner");
+        
+    }//GEN-LAST:event_buttonSearchOwnerActionPerformed
+
+    private void doSearch(String type) {
+        
+        infoArea.setText("");
+        
+        switch(type) {
             
-            key = list.get(i);
-            
-            if (key.getKeyN() == tmpKeyN) {
+        case "keyN":
+            int tmpKeyN = Integer.parseInt(searchField.getText());
                 
-                infoArea.append(key.getKeyN() + "\t" + key.getOwner() + "\t" + key.getAdress() + "\n");
+            for (int i = 0; i < list.size(); i++) {
+
+                key = list.get(i);
+
+                if (key.getKeyN() == tmpKeyN) {
+
+                    infoArea.append(key.getKeyN() + "\t" + key.getOwner() + "\t" + key.getAdress() + "\n");
+
+                }
+
+            }
+            break;
+        case "adress":
+        case "owner":
+            String tmpStr = searchField.getText();
+            
+            for (int i = 0; i < list.size(); i++) {
+                
+                key = list.get(i);
+                
+                if (type == "adress") {
+                    
+                    if (key.getAdress() == tmpStr) {
+
+                        infoArea.append(key.getKeyN() + "\t" + key.getOwner() + "\t" + key.getAdress() + "\n");
+
+                    }
+                    
+                } else {
+                    
+                    if (key.getOwner() == tmpStr) {
+                        
+                        infoArea.append(key.getKeyN() + "\t" + key.getOwner() + "\t" + key.getAdress() + "\n");
+                        
+                    }
+                    
+                }
                 
             }
             
         }
-        
-    }//GEN-LAST:event_buttonSearchKeyNActionPerformed
-
+            
+    }
+    
     public static void main(String args[]) {
         
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -235,21 +300,19 @@ public class Window extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonAdd;
+    private javax.swing.JButton buttonSearchAddress;
     private javax.swing.JButton buttonSearchKeyN;
+    private javax.swing.JButton buttonSearchOwner;
     private javax.swing.JButton buttonSortKeyN;
     private javax.swing.JTextField fieldAddress;
-    private javax.swing.JTextField fieldAddress1;
     private javax.swing.JTextField fieldKeyNumber;
-    private javax.swing.JTextField fieldKeyNumber1;
     private javax.swing.JTextField fieldOwner;
-    private javax.swing.JTextField fieldOwner1;
     private javax.swing.JTextArea infoArea;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField searchField;
     // End of variables declaration//GEN-END:variables
 }
