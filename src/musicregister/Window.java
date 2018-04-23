@@ -185,7 +185,7 @@ public class Window extends javax.swing.JFrame {
             
             String address = fieldAddress.getText();
             String owner = fieldOwner.getText();        
-            int keyNumber = Integer.parseInt(fieldKeyNumber.getText());
+            int keyNumber = Integer.valueOf(fieldKeyNumber.getText());
             key = new Key(keyNumber, address, owner);
             list.add(key);
             
@@ -206,21 +206,6 @@ public class Window extends javax.swing.JFrame {
     private void buttonSearchKeyNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSearchKeyNActionPerformed
         
         doSearch("keyN");
-        
-//      infoArea.setText("");
-//      int tmpKeyN = Integer.parseInt(searchField.getText());
-//        
-//      for (int i = 0; i < list.size(); i++) {
-//            
-//          key = list.get(i);
-//            
-//          if (key.getKeyN() == tmpKeyN) {
-//                
-//                infoArea.append(key.getKeyN() + "\t" + key.getOwner() + "\t" + key.getAdress() + "\n");
-//                
-//          }
-//            
-//      }
         
     }//GEN-LAST:event_buttonSearchKeyNActionPerformed
 
@@ -243,31 +228,42 @@ public class Window extends javax.swing.JFrame {
         switch(type) {
             
         case "keyN":
-            int tmpKeyN = Integer.parseInt(searchField.getText());
-                
-            for (int i = 0; i < list.size(); i++) {
+            
+            try {
+            
+                int tmpKeyN = Integer.parseInt(searchField.getText());
 
-                key = list.get(i);
+                for (int i = 0; i < list.size(); i++) {
 
-                if (key.getKeyN() == tmpKeyN) {
+                    key = list.get(i);
 
-                    infoArea.append(key.getKeyN() + "\t" + key.getOwner() + "\t" + key.getAdress() + "\n");
+                    if (key.getKeyN() == tmpKeyN) {
+
+                        infoArea.append(key.getKeyN() + "\t" + key.getOwner() + "\t" + key.getAdress() + "\n");
+
+                    }
 
                 }
-
+            
+            } catch (NumberFormatException e) {
+                
+                JOptionPane.showMessageDialog(null, "Nyckelnummer måste vara ett heltal\n\n(" + e + ")");
+                
             }
+            
             break;
         case "adress":
         case "owner":
+            
             String tmpStr = searchField.getText();
             
             for (int i = 0; i < list.size(); i++) {
                 
                 key = list.get(i);
                 
-                if (type == "adress") {
+                if ("adress".equals(type)) {
                     
-                    if (key.getAdress() == tmpStr) {
+                    if (key.getAdress().equals(tmpStr)) {
 
                         infoArea.append(key.getKeyN() + "\t" + key.getOwner() + "\t" + key.getAdress() + "\n");
 
@@ -275,7 +271,7 @@ public class Window extends javax.swing.JFrame {
                     
                 } else {
                     
-                    if (key.getOwner() == tmpStr) {
+                    if (key.getOwner().equals(tmpStr)) {
                         
                         infoArea.append(key.getKeyN() + "\t" + key.getOwner() + "\t" + key.getAdress() + "\n");
                         
@@ -284,6 +280,7 @@ public class Window extends javax.swing.JFrame {
                 }
                 
             }
+            break;
             
         }
             
