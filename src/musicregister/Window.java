@@ -173,7 +173,7 @@ public class Window extends javax.swing.JFrame {
         for (int i = 0; i < list.size(); i++) {
             
             key = list.get(i);
-            infoArea.append(key.getKeyN() + "\t" + key.getOwner() + "\t" + key.getAdress() + "\n");
+            infoArea.append(key.getKeyNumber() + "\t" + key.getOwner() + "\t" + key.getAdress() + "\n");
             
         }
         
@@ -237,9 +237,9 @@ public class Window extends javax.swing.JFrame {
 
                     key = list.get(i);
 
-                    if (key.getKeyN() == tmpKeyN) {
+                    if (key.getKeyNumber()== tmpKeyN) {
 
-                        infoArea.append(key.getKeyN() + "\t" + key.getOwner() + "\t" + key.getAdress() + "\n");
+                        infoArea.append(key.getKeyNumber() + "\t" + key.getOwner() + "\t" + key.getAdress() + "\n");
 
                     }
 
@@ -265,7 +265,7 @@ public class Window extends javax.swing.JFrame {
                     
                     if (key.getAdress().equals(tmpStr)) {
 
-                        infoArea.append(key.getKeyN() + "\t" + key.getOwner() + "\t" + key.getAdress() + "\n");
+                        infoArea.append(key.getKeyNumber() + "\t" + key.getOwner() + "\t" + key.getAdress() + "\n");
 
                     }
                     
@@ -273,7 +273,7 @@ public class Window extends javax.swing.JFrame {
                     
                     if (key.getOwner().equals(tmpStr)) {
                         
-                        infoArea.append(key.getKeyN() + "\t" + key.getOwner() + "\t" + key.getAdress() + "\n");
+                        infoArea.append(key.getKeyNumber() + "\t" + key.getOwner() + "\t" + key.getAdress() + "\n");
                         
                     }
                     
