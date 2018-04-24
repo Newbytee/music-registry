@@ -169,11 +169,12 @@ public class Window extends javax.swing.JFrame {
     private void buttonSortKeyNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSortKeyNActionPerformed
         
         infoArea.setText("");
+        infoArea.append("Nyckelnummer" + "\t\t" + "Ägare" + "\t\t" + "Address" + "\n");
         
         for (int i = 0; i < list.size(); i++) {
             
             key = list.get(i);
-            infoArea.append(key.getKeyNumber() + "\t" + key.getOwner() + "\t" + key.getAdress() + "\n");
+            infoArea.append(key.getKeyNumber() + "\t\t" + key.getOwner() + "\t\t" + key.getAdress() + "\n");
             
         }
         
@@ -224,6 +225,7 @@ public class Window extends javax.swing.JFrame {
     private void doSearch(String type) {
         
         infoArea.setText("");
+        infoArea.append("Nyckelnummer" + "\t\t" + "Ägare" + "\t\t" + "Address" + "\n");
         
         switch(type) {
             
@@ -239,7 +241,7 @@ public class Window extends javax.swing.JFrame {
 
                     if (key.getKeyNumber()== tmpKeyN) {
 
-                        infoArea.append(key.getKeyNumber() + "\t" + key.getOwner() + "\t" + key.getAdress() + "\n");
+                        infoArea.append(key.getKeyNumber() + "\t\t" + key.getOwner() + "\t\t" + key.getAdress() + "\n");
 
                     }
 
@@ -265,7 +267,7 @@ public class Window extends javax.swing.JFrame {
                     
                     if (key.getAdress().equals(tmpStr)) {
 
-                        infoArea.append(key.getKeyNumber() + "\t" + key.getOwner() + "\t" + key.getAdress() + "\n");
+                        infoArea.append(key.getKeyNumber() + "\t\t" + key.getOwner() + "\t\t" + key.getAdress() + "\n");
 
                     }
                     
@@ -273,7 +275,7 @@ public class Window extends javax.swing.JFrame {
                     
                     if (key.getOwner().equals(tmpStr)) {
                         
-                        infoArea.append(key.getKeyNumber() + "\t" + key.getOwner() + "\t" + key.getAdress() + "\n");
+                        infoArea.append(key.getKeyNumber() + "\t\t" + key.getOwner() + "\t\t" + key.getAdress() + "\n");
                         
                     }
                     
